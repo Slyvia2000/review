@@ -1,0 +1,36 @@
+<!-- 字符串操作-统计一个字符串中字符出现的次数 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 统计一个字符串中字符出现的次数
+        // 获得次数最多的一个，共出现几次
+        // 用字典的方式：
+        var str='helloworld';
+        var dict={};
+        for(var i=0;i<str.length;i++){
+            if(dict[str[i]]===undefined){
+                dict[str[i]]=1;
+            }else{
+                dict[str[i]]++;
+            }
+        }
+        console.log(dict);
+        
+        var max,count=0;
+        for(var key in dict){
+            if(dict[key]>count){
+                max=key;
+                count=dict[key];
+            }
+        }
+        console.log(max,count);
+    </script>
+</body>
+</html>
