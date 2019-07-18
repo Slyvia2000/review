@@ -1,0 +1,56 @@
+<!-- 关于数据类型 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 使用typeof判断
+        console.log(
+            typeof 1,
+            typeof 'hello',
+            typeof true,
+            typeof null,//返回object，不符合需求
+            typeof undefined,
+            typeof function(){},
+            typeof NaN,//返回number，不符合需求
+            typeof {sname:'lilei'},
+            typeof [1,2,3],
+        );
+
+        // 如何正确判断null和undefined
+        var obj=undefined;
+        console.log(obj===null)
+
+        var a=0;
+        console.log(a==='');
+        console.log(Number(''));
+
+        // 如何正确判断NaN
+        var a=10,b=NaN,c='',d=false;
+        console.log(
+        isNaN(a),
+        isNaN(b),
+        isNaN(c),
+        isNaN(d),
+        )
+
+        // 如何判断对象和数组
+        var a={},b=[],c=new Date;
+        console.log(//ES5的方法
+            Array.isArray(a),
+            Array.isArray(b)
+        );
+
+        console.log(//原生js，无兼容性问题
+            Object.prototype.toString.call(a)==='[object Array]',
+            Object.prototype.toString.call(b)==='[object Array]' ,
+            {}.toString.call(c)
+        );
+    </script>
+</body>
+</html>
