@@ -1,4 +1,4 @@
-<!-- 字符串操作-统计一个字符串中字符出现的次数 -->
+<!-- 字符串操作--统计 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +11,33 @@
     <script>
         // 统计一个字符串中字符出现的次数
         // 获得次数最多的一个，共出现几次
-        // 用字典的方式：
         var str='helloworld';
+        // 用字典的方式：先定义空对象
         var dict={};
-        for(var i=0;i<str.length;i++){
+        // 遍历字符串中每个字母
+        for(var i=0;i<str.length;i++ ){
+            // 如果dict对象中不包含以当前字母为属性名的成员，初始化值为1
             if(dict[str[i]]===undefined){
+                // 就强行添加一个以当前字母为属性名的成员
                 dict[str[i]]=1;
             }else{
+                // 否则，就将当前字母的数值+1
                 dict[str[i]]++;
             }
-        }
+        };
         console.log(dict);
-        
         var max,count=0;
+        // 遍历字典中每个属性
         for(var key in dict){
+            // 用当前属性值和count比较
+            // 如果当前属性值>count时，才取而代之，并将当前字母保存在max中
             if(dict[key]>count){
                 max=key;
                 count=dict[key];
-            }
-        }
+            };
+        };
         console.log(max,count);
     </script>
+    
 </body>
 </html>

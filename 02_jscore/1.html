@@ -1,4 +1,4 @@
-<!-- 作用域链 this -->
+<!-- 作用域链 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +16,22 @@
                 var a=30;
                 console.log(this.a);
             }
-        }
+        };
         obj.intr();//20
         var intr=obj.intr;
         intr();//10
+    </script>
+    <script>
+        var a=10;
+        var lilei={
+            a:20,
+            intr1:function(){ console.log(this.a) },
+            intr2:()=>{ console.log(this.a) }
+        }
+        //intr1中的this==>lilei
+        //intr2中的this==>window
+        console.log(lilei.intr1());//20
+        console.log(lilei.intr2());//10
     </script>
 </body>
 </html>

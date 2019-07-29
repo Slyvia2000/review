@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if('a' in window){ var a=10; }
+        alert(a);
+    </script>
+    <script>
+        var a1=10;
+        window.a2=20;
+        window['a3']=30;
+        console.log(window);
+        delete window.a1;
+        delete window.a2;
+        delete window.a3;
+        console.log(window);
+    </script>
+</body>
+</html>

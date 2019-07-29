@@ -1,4 +1,4 @@
-<!-- 关于声明提前 -->
+<!-- 声明提前 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +9,21 @@
 </head>
 <body>
     <script>
-        function fun(){console.log(1);};
-        fun();
-        function fun(){console.log(2);};
-        fun();
+        function fun(){ console.log(1)};
+        fun();//2
+        function fun(){ console.log(2)};
+        fun();//2
         var fun=100;
-        fun();
+        fun();//fun is not a function 
     </script>
+    <!-- <script>
+        function fun(){ console.log(1)};
+        function fun(){ console.log(2)};
+        var fun;
+        fun();//2
+        fun();//2
+        fun=100;
+        fun();//fun is not a function 
+    </script> -->
 </body>
 </html>

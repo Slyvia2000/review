@@ -1,0 +1,48 @@
+<!-- 浅拷贝&深拷贝 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 深克隆：如果包含内嵌的对象或数组，也复制副本 -->
+    <script>
+        var lilei={
+            sname:'lilei',
+            sage:11,
+            score:null,
+            friends:['jack','rose']
+        };
+        function clone(obj){
+            // 如果为空
+            if(obj===null){ return null; };
+            // 如果是数组
+            if({}.toString.call(obj)==='[object Array]'){
+                var newArr=[];
+                newArr=obj.slice();
+                return newArr;
+            };
+            // 如果是对象
+            var newObj={};
+            // 遍历原obj的每个属性
+            for(var key in obj){
+                // 如果原对象中当前属性值是原始类型
+                if(typeof obj[key]!=='object'){
+                    // 通过直接赋值，在新对象中添加和原对象中同名的属性
+                    newObj[key]=obj[key]
+                }else{
+                    // 否则，再次调用clone函数，继续复制当前属性值
+                    newObj[key]=clone(obj[key]);
+                }
+            };
+            return newObj;
+        };
+        var lilei2=clone(lilei);
+        console.log(lilei2);
+        console.log(lilei2.friends===lilei.friends);
+    </script>
+</body>
+</html>

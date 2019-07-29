@@ -1,4 +1,4 @@
-<!-- 数组操作-去重和排序 -->
+<!-- 数组操作--去重 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +10,12 @@
 <body>
     <script>
         var arr=[1,2,3,4,3,2];
+        // 用字典
+        // 遍历arr中每个元素，每遍历一个元素，就以当前元素作为属性名加入字典中
         var dict={};
-        
-        /*
-        for(var key of arr){
-            dict[key]=1;
-            // console.log(key);
-        };
-        */
         for(var i=0;i<arr.length;i++){
             dict[arr[i]]=1;
-        };
-        // console.log(dict)
+        }
         // 遍历字典，仅获取属性名，不要属性值
         var res=[],i=0;
         for(res[i++] in dict);
